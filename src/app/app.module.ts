@@ -1,14 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { GifsModule } from './gifs/gifs.module';
+
+import {SidebarModule} from './shared/sidebar.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    GifsModule,
+    SidebarModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+
+<div class="d-flex flex-column flex-shrink-0 p-3 text-light" >
+    <span class="fs-4 ms-2 fw-bold">GiftApp</span>
+  <hr>
+  <nav class="navbar navbar-expand-md">
+  <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navBar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse " id="navBar">
+    <ul class="nav nav-pills flex-column lead">
+    <!--   <li class="" (click)="agregar()"><a  href="#" class="nav-link text-light" aria-current="page">Home</a></li>-->
+      <li class="" *ngFor="let history of historial" (click)="mostrarSeleccion(history)"><a href="#" class="nav-link text-light ">{{history | titlecase}}</a></li>
+    </ul>
+  </div>
+  </nav>
+  <hr>
+    </div>

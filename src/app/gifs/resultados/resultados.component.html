@@ -1,0 +1,13 @@
+
+<div class="row row-cols-1 row-cols-md-3 mt-3 p-3">
+  <div class="col animate__animated animate__jackInTheBox"
+  *ngFor="let gifs of historial">
+    <div class="card mt-2 p-3">
+      <img [src]="gifs.images.downsized_medium.url" class="card-img-top" [alt]="gifs.title">
+    <div class="card-body">
+      <h5 class="card-title lead">{{gifs.title}}</h5>
+      <p class="card-text lead"></p>
+    </div>
+    </div>  
+  </div>
+</div>
