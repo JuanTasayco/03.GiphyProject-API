@@ -8,7 +8,7 @@ import { GifsService } from '../services/gifs.service';
 })
 export class BusquedaComponent {
 
- @ViewChild("value") valor!: ElementRef;
+  @ViewChild("value") valor!: ElementRef;
 
   /* tomarValor(){
     
@@ -19,16 +19,19 @@ export class BusquedaComponent {
   }
  */
 
-  obtenerKeyUP(event : KeyboardEvent){
- const valor = this.valor.nativeElement.value;
- 
-  if(event.keyCode !== 13) return;
-    if(valor.trim().length<1 || valor.trim().length>30) return;
+
+
+
+  getWhitKeyPress(event: KeyboardEvent) {
+    const valor = this.valor.nativeElement.value;
+
+    if (event.keyCode !== 13) return;
+    if (valor.trim().length < 1 || valor.trim().length > 30) return;
     this.gifservice.insertarValores(valor);
-    this.valor.nativeElement.value= ""; 
+    this.valor.nativeElement.value = "";
   }
 
   constructor(private gifservice: GifsService) {
 
-   }
+  }
 }
