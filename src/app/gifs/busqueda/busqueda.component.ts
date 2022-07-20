@@ -10,17 +10,24 @@ export class BusquedaComponent {
 
  valor: string = ""
 
-  tomarValor(){
+  /* tomarValor(){
     
   if(this.valor.trim().length<1 || this.valor.trim().length>30) return;
     this.gifservice.insertarValores(this.valor);
     this.valor= "";
     
   }
+ */
 
- nuevo(){
-  console.log(this.valor)
-}
-  
-  constructor(private gifservice: GifsService) { }
+  obtenerKeyUP(valor : KeyboardEvent){
+    if(valor.keyCode !== 13) return;
+    
+    if(this.valor.trim().length<1 || this.valor.trim().length>30) return;
+    this.gifservice.insertarValores(this.valor);
+    this.valor= "";
+  }
+
+  constructor(private gifservice: GifsService) {
+
+   }
 }
