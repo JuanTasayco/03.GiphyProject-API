@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { GifsService } from '../services/gifs.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { GifsService } from '../services/gifs.service';
 })
 export class BusquedaComponent {
 
- valor: string = ""
+ @ViewChild("value") valor!: ElementRef;
 
   /* tomarValor(){
     
@@ -19,12 +19,13 @@ export class BusquedaComponent {
   }
  */
 
-  obtenerKeyUP(valor : KeyboardEvent){
-    if(valor.keyCode !== 13) return;
-    
-    if(this.valor.trim().length<1 || this.valor.trim().length>30) return;
-    this.gifservice.insertarValores(this.valor);
-    this.valor= "";
+  obtenerKeyUP(event : KeyboardEvent){
+ const valor = this.valor.nativeElement.value;
+ 
+  if(event.keyCode !== 13) return;
+    if(valor.trim().length<1 || valor.trim().length>30) return;
+    this.gifservice.insertarValores(valor);
+    this.valor.nativeElement.value= ""; 
   }
 
   constructor(private gifservice: GifsService) {
